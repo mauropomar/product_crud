@@ -32,6 +32,7 @@ export class ListComponent implements OnInit {
   }
 
   openDialogModal(){
+    this.isEditModeEnabled = false;
     this.display = 'block';
   }
 

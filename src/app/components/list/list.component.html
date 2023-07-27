@@ -15,7 +15,7 @@
                         <input type="text" class="form-control" placeholder='Enter a name' [(ngModel)]="prod.name" name="name" #name>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder='Enter your age' [(ngModel)]="prod.serial_number" name="age" #serialNumber>
+                        <input type="text" class="form-control" placeholder='Enter your serial number' [(ngModel)]="prod.serial_number" name="serial_number" #serialNumber>
                     </div>
                     <div class="form-group">
                         <input type="number" class="form-control" placeholder='Enter your price' [(ngModel)]="prod.price" name="price" #price>
@@ -46,8 +46,7 @@
                 <th>Name</th>
                 <th>Serial Number</th>
                 <th>Price</th>
-                <th>Remove</th>
-                <th>Edit</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -56,10 +55,8 @@
                 <td>{{product.serial_number}}</td>
                 <td>{{product.price}}</td>
                 <td>
+                    <button (click)="editProduct(product)" class="btn btn-primary m-lg-1 fa fa-pencil-square-o"></button>
                     <button (click)="deleteProduct(product.id)" class="btn btn-danger fa fa-trash-o"></button>
-                </td>
-                <td>
-                    <button (click)="editProduct(product)" class="btn btn-primary fa fa-square-o"></button>
                 </td>
             </tr>
         </tbody>
