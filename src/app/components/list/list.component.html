@@ -36,7 +36,7 @@
                         <div style="color:#E91E63" *ngIf="submitted && myForm.form.controls.serial_number.errors?.required">
                             <sup>*</sup>Enter your serial number
                         </div>
-                        <div style="color:#E91E63" *ngIf="submitted && (myForm.form.controls.serial_number.errors?.minlength || myForm.form.controls.name.errors?.maxlength)">
+                        <div style="color:#E91E63" *ngIf="submitted && (myForm.form.controls.serial_number.errors?.minlength || myForm.form.controls.serial_number.errors?.maxlength)">
                             <sup>*</sup>Must be 8 characters
                         </div>
                         <div style="color:#E91E63" *ngIf="submitted && myForm.form.controls.serial_number.errors?.pattern">
@@ -50,7 +50,7 @@
                         <div style="color:#E91E63" *ngIf="submitted && myForm.form.controls.price.errors?.required">
                             <sup>*</sup>Enter your price
                         </div>
-                        <div style="color:#E91E63" *ngIf="submitted && (myForm.form.controls.price.errors?.min || myForm.form.controls.name.errors?.max)">
+                        <div style="color:#E91E63" *ngIf="submitted && (myForm.form.controls.price.errors?.min || myForm.form.controls.price.errors?.max)">
                             <sup>*</sup>Must be between 100 and 500
                         </div>
                     </div>
@@ -84,7 +84,7 @@
             <tr *ngFor="let product of products">
                 <td>{{product.name}}</td>
                 <td>{{product.serial_number}}</td>
-                <td>{{product.price}}</td>
+                <td>{{product.price | number:'0.2-2'}}</td>
                 <td>
                     <button (click)="editProduct(product)" class="btn btn-primary m-lg-1 fa fa-pencil-square-o"></button>
                     <button (click)="deleteProduct(product.id)" class="btn btn-danger fa fa-trash-o"></button>

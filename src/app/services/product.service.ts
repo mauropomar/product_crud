@@ -1,13 +1,14 @@
 import { Product } from './../models/product.model';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  private apiUrl = 'http://127.0.0.1:3000/productos';
+  private apiUrl = `${environment.apiUrl}/productos`;
   public httOpt = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',

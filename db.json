@@ -3,7 +3,7 @@
     {
       "name": "Zapatos",
       "serial_number": "20A9OPR6",
-      "price": 250.45,
+      "price": 123.9,
       "id": 1
     },
     {
@@ -17,6 +17,12 @@
       "serial_number": "5554645A",
       "price": 123,
       "id": 1690461389457
+    },
+    {
+      "name": "Pantalon",
+      "serial_number": "45A90009",
+      "price": 234,
+      "id": 1690462728377
     }
   ]
 }
