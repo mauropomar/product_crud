@@ -11,6 +11,12 @@
       "serial_number": "5445543p",
       "price": "222.00",
       "id": 1690464810096
+    },
+    {
+      "name": "Queso Gouda",
+      "serial_number": "34566771",
+      "price": "230.00",
+      "id": 1690465326437
     }
   ]
 }
