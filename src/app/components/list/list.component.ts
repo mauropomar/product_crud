@@ -76,6 +76,13 @@ export class ListComponent implements OnInit {
     if (!this.productForm.valid) {
       return false;
     }
+    const productExist = this.products.filter(
+      p => p.name.toLowerCase() === myForm.value.name.toLowerCase() && p.id !== this.prod.id
+    );
+    if (productExist.length > 0) {
+      alert('There is already a product with this name');
+      return;
+    };
     myForm.value.id = this.prod.id;
     this.store.dispatch(new fromStore.UpdateProduct(myForm.value));
     this.closeModal(myForm);
@@ -94,6 +101,11 @@ export class ListComponent implements OnInit {
     if (!this.productForm.valid) {
       return false;
     }
+    const productExist = this.products.filter(p => p.name.toLowerCase() === myForm.value.name.toLowerCase());
+    if (productExist.length > 0) {
+      alert('There is already a product with this name');
+      return;
+    };
     let userId = new Date().getTime();
     let newProduct = myForm.value;
     newProduct.id = userId;

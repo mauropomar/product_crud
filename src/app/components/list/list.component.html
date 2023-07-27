@@ -59,7 +59,7 @@
             <div class="modal-footer">
                 <button class="btn btn-secondary" data-dismiss="modal" (click)="closeModal(myForm)">Close</button>
                 <input *ngIf="!isEditModeEnabled" type="button" class="btn btn-primary" (click)="addProduct(myForm)" value='Add Product'>
-                <input *ngIf="isEditModeEnabled" type="button" class="btn btn-success" (click)="updateProduct(myForm)" value='Update Product'>
+                <input *ngIf="isEditModeEnabled" type="button" class="btn btn-primary" (click)="updateProduct(myForm)" value='Update Product'>
             </div>
         </div>
     </div>
@@ -86,8 +86,8 @@
                 <td>{{product.serial_number}}</td>
                 <td>{{product.price | number:'0.2-2'}}</td>
                 <td>
-                    <button (click)="editProduct(product)" class="btn btn-primary m-lg-1 fa fa-pencil-square-o"></button>
-                    <button (click)="deleteProduct(product.id)" class="btn btn-danger fa fa-trash-o"></button>
+                    <button (click)="editProduct(product)" class="btn btn-primary m-lg-1 fa fa-pencil-square-o" data-bs-toggle="tooltip" title="Edit" data-bs-placement="top"></button>
+                    <button (click)="deleteProduct(product.id)" class="btn btn-danger fa fa-trash-o" data-bs-toggle="tooltip" title="Remove" data-bs-placement="top"></button>
                 </td>
             </tr>
         </tbody>

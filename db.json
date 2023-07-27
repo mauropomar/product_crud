@@ -1,22 +1,28 @@
 {
   "productos": [
     {
-      "name": "Perfume",
-      "serial_number": "4554645A",
+      "name": "Perfume Expreso",
+      "serial_number": "7554645B",
       "price": "230.00",
       "id": 1690464092160
     },
     {
-      "name": "PIZZA DE QUESO",
-      "serial_number": "5445543p",
-      "price": "222.00",
-      "id": 1690464810096
+      "name": "Pan con Aceite",
+      "serial_number": "12345678",
+      "price": "456.00",
+      "id": 1690466759270
     },
     {
-      "name": "Queso Gouda",
-      "serial_number": "34566771",
-      "price": "230.00",
-      "id": 1690465326437
+      "name": "Perfume Dior",
+      "serial_number": "ASSSSSST",
+      "price": "450.00",
+      "id": 1690468105890
+    },
+    {
+      "name": "Cafe cubita",
+      "serial_number": "YUMAPART",
+      "price": "167.20",
+      "id": 1690468416968
     }
   ]
 }
