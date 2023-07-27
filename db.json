@@ -1,12 +1,6 @@
 {
   "productos": [
     {
-      "name": "Zapatos de Cuero",
-      "serial_number": "20A9OPR3",
-      "price": "152.34",
-      "id": 1
-    },
-    {
       "name": "Perfume",
       "serial_number": "4554645A",
       "price": "230.00",

@@ -83,7 +83,7 @@ export class ListComponent implements OnInit {
 
   deleteProduct(productId: number) {
     if (productId !== undefined) {
-      if (confirm('¿Estas seguro de borrar a este producto?')) {
+      if (confirm('¿Are you sure you want to delete this product?')) {
         this.store.dispatch(new fromStore.DeleteProduct(productId));
       }
     }
