@@ -9,6 +9,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { HttpClientModule } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { ListComponent } from './components/list/list.component';
 
 @NgModule({
@@ -21,6 +22,7 @@ import { ListComponent } from './components/list/list.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument({}),
     EffectsModule.forRoot(effects)

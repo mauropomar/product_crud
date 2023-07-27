@@ -10,18 +10,49 @@
         </button>
             </div>
             <div class="modal-body">
-                <form #myForm="ngForm">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder='Enter a name' [(ngModel)]="prod.name" name="name" #name>
+                <form #myForm="ngForm" [formGroup]="productForm">
+                    <div class="form-group mb-3">
+                        <div>Name:</div>
+                        <input type="text" class="form-control" placeholder='Enter a name' formControlName="name" [ngClass]="{'error': submitted && myForm.form.controls.name.errors}">
+                        <!-- error block -->
+                        <div style="color:#E91E63" *ngIf="submitted && myForm.form.controls.name.errors?.required">
+                            <sup>*</sup>Enter your name
+                        </div>
+                        <div style="color:#E91E63" *ngIf="submitted && myForm.form.controls.name.errors?.minlength">
+                            <sup>*</sup>Name must be 2 characters long
+                        </div>
+                        <div style="color:#E91E63" *ngIf="submitted && myForm.form.controls.name.errors?.maxlength">
+                            <sup>*</sup>Name must not have more than 20 characters
+                        </div>
+                        <div style="color:#E91E63" *ngIf="submitted && myForm.form.controls.name.errors?.pattern">
+                            <sup>*</sup>No special charcter allowed
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder='Enter your serial number' [(ngModel)]="prod.serial_number" name="serial_number" #serialNumber>
+
+
+                    <div class="form-group mb-3">
+                        <div>Serial Number:</div>
+                        <input type="text" class="form-control" placeholder='Enter a serial number' formControlName="serial_number" [ngClass]="{'error': submitted && myForm.form.controls.serial_number.errors}">
+                        <div style="color:#E91E63" *ngIf="submitted && myForm.form.controls.serial_number.errors?.required">
+                            <sup>*</sup>Enter your serial number
+                        </div>
+                        <div style="color:#E91E63" *ngIf="submitted && (myForm.form.controls.serial_number.errors?.minlength || myForm.form.controls.name.errors?.maxlength)">
+                            <sup>*</sup>Must be 8 characters
+                        </div>
+                        <div style="color:#E91E63" *ngIf="submitted && myForm.form.controls.serial_number.errors?.pattern">
+                            <sup>*</sup>No special charcter allowed
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <input type="number" class="form-control" placeholder='Enter your price' [(ngModel)]="prod.price" name="price" #price>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" [(ngModel)]='prod.id' name="id" #id hidden>
+
+                    <div class="form-group mb-3">
+                        <div>Precio:</div>
+                        <input type="number" class="form-control" placeholder='Enter price' formControlName="price" [ngClass]="{'error': submitted && myForm.form.controls.price.errors}">
+                        <div style="color:#E91E63" *ngIf="submitted && myForm.form.controls.price.errors?.required">
+                            <sup>*</sup>Enter your price
+                        </div>
+                        <div style="color:#E91E63" *ngIf="submitted && (myForm.form.controls.price.errors?.min || myForm.form.controls.name.errors?.max)">
+                            <sup>*</sup>Must be between 100 and 500
+                        </div>
                     </div>
                 </form>
             </div>

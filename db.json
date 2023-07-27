@@ -1,16 +1,22 @@
 {
   "productos": [
     {
-      "id": 1,
       "name": "Zapatos",
-      "serial_number": "20A9OP",
-      "price": 25.45
+      "serial_number": "20A9OPR6",
+      "price": 250.45,
+      "id": 1
     },
     {
       "name": "Pullovers",
       "serial_number": "AAA9OP",
       "price": 56.457,
       "id": 2
+    },
+    {
+      "name": "ewewrew",
+      "serial_number": "5554645A",
+      "price": 123,
+      "id": 1690461389457
     }
   ]
 }
