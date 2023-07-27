@@ -1,0 +1,35 @@
+<div class="overlay" [ngStyle]="{'display':display}"></div>
+<!-- Modal -->
+<div class="modal" [ngStyle]="{'display':display}" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{ isEditModeEnabled ? 'Edit' : 'Add'}} customer</h5>
+        <button (click)="closeModal(myForm)" type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <form #myForm="ngForm">
+              <div class="form-group">
+                  <input type="text" class="form-control" placeholder = 'Enter a name'  name="name" #name>
+              </div>
+              <div class="form-group">
+                  <input type="number" class="form-control" placeholder = 'Enter your age'  name="age" #age>
+              </div>
+              <div class="form-group">
+                  <input type="email" class="form-control" placeholder = 'Enter your email'  name="email" #email>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="id" #id hidden>
+            </div>
+          </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-dismiss="modal"    (click)="closeModal(myForm)">Close</button>
+        <input *ngIf="!isEditModeEnabled" type="button" class="btn btn-primary" (click)="addCustomer(myForm)" value='Add Client'>
+        <input *ngIf="isEditModeEnabled" type="button" class="btn btn-success"  (click)="updateCustomer(myForm)" value='Update'>
+      </div>
+    </div>
+  </div>
+</div>

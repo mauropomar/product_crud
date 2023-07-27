@@ -1,0 +1,67 @@
+<div class="overlay" [ngStyle]="{'display':display}"></div>
+<!-- Modal -->
+<div class="modal" [ngStyle]="{'display':display}" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{{ isEditModeEnabled ? 'Edit' : 'Add'}} product</h5>
+                <button (click)="closeModal(myForm)" type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+            </div>
+            <div class="modal-body">
+                <form #myForm="ngForm">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder='Enter a name' [(ngModel)]="prod.name" name="name" #name>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder='Enter your age' [(ngModel)]="prod.serial_number" name="age" #serialNumber>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" class="form-control" placeholder='Enter your price' [(ngModel)]="prod.price" name="price" #price>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" [(ngModel)]='prod.id' name="id" #id hidden>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-dismiss="modal" (click)="closeModal(myForm)">Close</button>
+                <input *ngIf="!isEditModeEnabled" type="button" class="btn btn-primary" (click)="addProduct(myForm)" value='Add Product'>
+                <input *ngIf="isEditModeEnabled" type="button" class="btn btn-success" (click)="updateProduct(myForm)" value='Update Product'>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="content-button">
+        <button (click)="openDialogModal()" class="btn btn-primary mt-5"> Add Product</button>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Serial Number</th>
+                <th>Price</th>
+                <th>Remove</th>
+                <th>Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products">
+                <td>{{product.name}}</td>
+                <td>{{product.serial_number}}</td>
+                <td>{{product.price}}</td>
+                <td>
+                    <button (click)="deleteProduct(product.id)" class="btn btn-danger fa fa-trash-o"></button>
+                </td>
+                <td>
+                    <button (click)="editProduct(product)" class="btn btn-primary fa fa-square-o"></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
