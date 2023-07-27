@@ -1,28 +1,22 @@
 {
   "productos": [
     {
-      "name": "Zapatos",
-      "serial_number": "20A9OPR6",
-      "price": 123.9,
+      "name": "Zapatos de Cuero",
+      "serial_number": "20A9OPR3",
+      "price": "152.34",
       "id": 1
     },
     {
-      "name": "Pullovers",
-      "serial_number": "AAA9OP",
-      "price": 56.457,
-      "id": 2
+      "name": "Perfume",
+      "serial_number": "4554645A",
+      "price": "230.00",
+      "id": 1690464092160
     },
     {
-      "name": "ewewrew",
-      "serial_number": "5554645A",
-      "price": 123,
-      "id": 1690461389457
-    },
-    {
-      "name": "Pantalon",
-      "serial_number": "45A90009",
-      "price": 234,
-      "id": 1690462728377
+      "name": "PIZZA DE QUESO",
+      "serial_number": "5445543p",
+      "price": "222.00",
+      "id": 1690464810096
     }
   ]
 }

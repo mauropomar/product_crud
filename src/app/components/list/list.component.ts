@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { FormBuilder,  Validators } from "@angular/forms";
+import { FormBuilder, Validators } from "@angular/forms";
+import { NgForm } from '@angular/forms';
 import * as fromStore from './../../store';
 import { Product } from './../../models/product.model';
-import { NgForm } from '@angular/forms';
+
 
 @Component({
   selector: 'app-list',
@@ -33,13 +34,21 @@ export class ListComponent implements OnInit {
   }
 
   productForm = this.fb.group({
-    name: ['', [Validators.required, Validators.minLength(2),Validators.maxLength(20), Validators.pattern('^[_A-z0-9]*((-|\s)*[_A-z0-9])*$')]],
-    serial_number: ['', [Validators.required, Validators.minLength(8),Validators.maxLength(8)]],
+    name: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(20), Validators.pattern('^[a-zA-Z0-9 ]{2,20}$')]],
+    serial_number: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(8), , Validators.pattern('^[a-zA-Z0-9 ]{2,20}$')]],
     price: [0, [Validators.required, Validators.min(100), Validators.max(500)]]
   })
 
   get myForm() {
     return this.productForm.controls;
+  }
+
+  formatInput() {
+    const value = this.myForm.price.value;
+    if (value !== null) {
+      const value = this.myForm.price.value;
+      this.myForm.price.setValue(value.toFixed(2));
+    }
   }
 
   openDialogModal() {
@@ -64,8 +73,7 @@ export class ListComponent implements OnInit {
 
   updateProduct(myForm: NgForm) {
     this.submitted = true;
-    if(!this.productForm.valid) {
-      alert('Please fill all the required fields to update a product!')
+    if (!this.productForm.valid) {
       return false;
     }
     myForm.value.id = this.prod.id;
@@ -83,8 +91,7 @@ export class ListComponent implements OnInit {
 
   addProduct(myForm: NgForm) {
     this.submitted = true;
-    if(!this.productForm.valid) {
-      alert('Please fill all the required fields to create a product!')
+    if (!this.productForm.valid) {
       return false;
     }
     let userId = new Date().getTime();

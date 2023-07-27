@@ -46,7 +46,7 @@
 
                     <div class="form-group mb-3">
                         <div>Precio:</div>
-                        <input type="number" class="form-control" placeholder='Enter price' formControlName="price" [ngClass]="{'error': submitted && myForm.form.controls.price.errors}">
+                        <input type="number" class="form-control" placeholder='Enter price' formControlName="price" (blur)="formatInput()" [ngClass]="{'error': submitted && myForm.form.controls.price.errors}">
                         <div style="color:#E91E63" *ngIf="submitted && myForm.form.controls.price.errors?.required">
                             <sup>*</sup>Enter your price
                         </div>
